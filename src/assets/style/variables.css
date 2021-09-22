@@ -1,0 +1,10 @@
+:root {
+	--primaryColor: #9c27b0;
+	--secondaryColor: #f3afff;
+	--infoColor: #00bcd4;
+	--successColor: #4caf50;
+	--dangerColor: #f44336;
+	--warningColor: #ff9800;
+	--darkGreyColor: rgb(36, 36, 36);
+	--lightGreyColor: rgb(207, 207, 207);
+}

@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav" ref="navigation">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    </div> -->
+    <router-view />
   </div>
 </template>
+<script>
+export default {
+  mounted() {
+    console.log("app", this.$refs.navigation.clientHeight);
+    //change colors based on json file
+    // const root = document.documentElement;
+    // root.style.setProperty("--primaryColor", "#CCCC00");
+  },
+};
+</script>
 
 <style>
 #app {

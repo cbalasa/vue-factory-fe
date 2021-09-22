@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "variables.css";
+@import "colors.css";
+@import "input.css";
+@import "checkboxAndRadio.css";
+@import "layout.css";

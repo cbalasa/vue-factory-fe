@@ -1,0 +1,87 @@
+/* ************************************************/
+/*                    OUTLINE INPUT FOCUS         */
+/* ************************************************/
+
+/* FULL BORDER */
+.primaryInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--primaryColor);
+}
+.secondaryInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--secondaryColor);
+}
+.successInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--successColor);
+}
+.warningInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--warningColor);
+}
+.dangerInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--dangerColor);
+}
+.infoInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--infoColor);
+}
+.darkgreyInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--darkGreyColor);
+}
+.lightgreyInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid var(--lightGreyColor);
+}
+
+/* BOTTOM BORDER */
+.primaryInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--primaryColor);
+}
+.secondaryInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--secondaryColor);
+}
+.successInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--successColor);
+}
+.warningInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--warningColor);
+}
+.dangerInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--dangerColor);
+}
+.infoInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--infoColor);
+}
+.darkgreyInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--darkGreyColor);
+}
+.lightgreyInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid var(--lightGreyColor);
+}
