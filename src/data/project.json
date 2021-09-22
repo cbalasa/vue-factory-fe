@@ -1,0 +1,53 @@
+{
+	"projectInformation": {
+		"appName": "test-web"
+	},
+	"pages": {
+		"about": {
+			"title": "About",
+			"content": [
+				{
+					"type": "Combinations",
+					"components": [
+						{
+							"type": "Banner",
+							"props": {
+								"image": "banner.jpg",
+								"parentName": "About",
+								"height": "full",
+								"parallax": false,
+								"combinations": {
+									"components": [
+										{
+											"type": "Title",
+											"props": {
+												"text": "Build Better Websites With Bikin"
+											}
+										},
+										{
+											"type": "SubTitle",
+											"props": {
+												"text": "We are team of talented designers making websites with Bootstrap"
+											}
+										},
+										{
+											"type": "Buttons",
+											"props": {
+												"label": "Get Started",
+												"type": "filled",
+												"color": "primary",
+												"align": "center",
+												"marginTop": 5,
+												"onClick": "() =>{}"
+											}
+										}
+									]
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	}
+}

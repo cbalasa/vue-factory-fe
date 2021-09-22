@@ -34,7 +34,7 @@
         "
         :style="{ height: bannerHeight + 'px' }"
       >
-        <Combinations :components="bannerCombinations.components" />
+        <Combinations :components="combinations.components" />
       </div>
     </div>
     <div v-else>
@@ -42,7 +42,7 @@
         class="z-50 py-10 flex items-center justify-center w-full flex-col"
         :style="{ height: bannerHeight + 'px' }"
       >
-        <Combinations :components="bannerCombinations.components" />
+        <Combinations :components="combinations.components" />
       </div>
       <ParallaxContainer
         v-if="parallax"
@@ -71,8 +71,10 @@ export default {
   data() {
     return { bannerHeight: "" };
   },
-  mounted() {
-    this.bannerHeight = this.$refs.bannerImage.clientHeight;
+  updated() {
+    if (this.$refs.bannerImage !== undefined) {
+      this.bannerHeight = this.$refs.bannerImage.clientHeight;
+    }
   },
   computed: {
     backImg() {
@@ -105,7 +107,7 @@ export default {
       type: Boolean,
       require: false,
     },
-    bannerCombinations: {
+    combinations: {
       type: Object,
       require: false,
     },

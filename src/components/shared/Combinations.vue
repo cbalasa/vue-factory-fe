@@ -16,6 +16,12 @@
         :placeholder="component.props.placeholder"
         :align="component.props.align"
         :marginTop="component.props.marginTop"
+        :image="component.props.image"
+        :parentName="component.props.parentName"
+        :height="component.props.height"
+        :parallax="component.props.parallax"
+        :combinations="component.props.combinations"
+        :onClick="component.props.onClick"
       ></component>
     </div>
   </div>

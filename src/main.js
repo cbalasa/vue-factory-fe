@@ -17,6 +17,10 @@ for (let key in Components) {
 	Vue.component(key, Components[key]);
 }
 
+//import JSON file
+
+import projectJSON from "./data/project.json";
+Vue.prototype.$projectJSON = projectJSON;
 new Vue({
 	router,
 	render: (h) => h(App)

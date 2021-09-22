@@ -10,7 +10,8 @@
 <script>
 export default {
   mounted() {
-    console.log("app", this.$refs.navigation.clientHeight);
+    console.log(this.$projectJSON);
+    // console.log("app", this.$refs.navigation.clientHeight);
     //change colors based on json file
     // const root = document.documentElement;
     // root.style.setProperty("--primaryColor", "#CCCC00");

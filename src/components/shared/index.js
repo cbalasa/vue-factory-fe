@@ -8,5 +8,4 @@ req.keys().forEach((fileName) => {
 	const componentName = fileName.replace(/(\.\/|\.vue)/g, "");
 	components[componentName] = req(fileName).default;
 });
-console.log(components);
 export default components;
