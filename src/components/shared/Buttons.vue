@@ -1,5 +1,8 @@
 <template>
-  <div :class="['justify-' + align, 'mt-' + marginTop]" class="flex z-50">
+  <div
+    :class="['justify-' + align, 'mt-' + marginTop, 'mb-' + marginBottom]"
+    class="flex z-50"
+  >
     <button
       :class="[typeFn(), roundedFn(), sizeFn(), colorFn()]"
       class="flex items-center justify-center px-8"
@@ -23,7 +26,7 @@ export default {
   props: {
     onClick: {
       type: Function,
-      required: true,
+      required: false,
     },
     type: {
       type: String,
@@ -36,6 +39,7 @@ export default {
     color: {
       type: String,
       required: false,
+      default: "primary",
     },
     icon: {
       type: String,
@@ -55,7 +59,9 @@ export default {
     },
     marginTop: {
       type: Number,
-      require: false,
+    },
+    marginBottom: {
+      type: Number,
     },
   },
   methods: {

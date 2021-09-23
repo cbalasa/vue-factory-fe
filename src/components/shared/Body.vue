@@ -1,7 +1,12 @@
 <template>
   <span
-    class="text-justify flex text-sm"
-    :class="[color == !undefined] ? color + 'TextColor' : null"
+    class="flex text-sm"
+    :class="[
+      color + 'TextColor',
+      'justify-' + align,
+      'mt-' + marginTop,
+      'mb-' + marginBottom,
+    ]"
     >{{ text }}</span
   >
 </template>
@@ -15,6 +20,17 @@ export default {
     },
     color: {
       type: String,
+      default: "darkgrey",
+    },
+    align: {
+      type: String,
+      default: "right",
+    },
+    marginTop: {
+      type: Number,
+    },
+    marginBottom: {
+      type: Number,
     },
   },
 };

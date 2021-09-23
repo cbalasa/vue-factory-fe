@@ -23,6 +23,7 @@ export default {
     color: {
       type: String,
       required: false,
+      default: "primary",
     },
     label: {
       type: String,

@@ -42,24 +42,32 @@
         class="z-50 py-10 flex items-center justify-center w-full flex-col"
         :style="{ height: bannerHeight + 'px' }"
       >
-        <Combinations :components="combinations.components" />
+        <Combinations
+          :components="combinations"
+          v-if="combinations !== undefined"
+        />
       </div>
       <ParallaxContainer
         v-if="parallax"
         style="overflow: visible !important; z-index: 0"
       >
         <ParallaxElement :factor="-0.25">
-          <img
-            :src="backImg"
+          <V-Image
+            :image="image"
             class="no-repeat m-auto relative w-auto"
             :style="{
               height: parallaxHeightImg,
             }"
+            :parentName="parentName"
           />
         </ParallaxElement>
       </ParallaxContainer>
       <div v-else>
-        <img :src="backImg" class="no-repeat m-auto relative" />
+        <V-Image
+          :image="image"
+          class="no-repeat m-auto relative"
+          :parentName="parentName"
+        />
       </div>
     </div>
   </div>
@@ -108,7 +116,7 @@ export default {
       require: false,
     },
     combinations: {
-      type: Object,
+      type: Array,
       require: false,
     },
     cover: {

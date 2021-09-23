@@ -5,7 +5,12 @@
       class="flex flex-col w-full items-start"
     >
       <div class="flex items-center mb-1">
-        <font-awesome-icon icon="user-secret" size="xs" class="mr-1" />
+        <font-awesome-icon
+          :icon="icon"
+          size="xs"
+          class="mr-1"
+          v-if="icon !== undefined"
+        />
         <span class="text-sm">{{ label }}</span>
       </div>
       <input
@@ -61,6 +66,9 @@ export default {
       type: String,
       require: false,
     },
+    icon: {
+      type: String,
+    },
   },
   methods: {
     colorFn() {
@@ -74,6 +82,11 @@ export default {
             "BorderColor"
         : this.color != undefined && this.type == undefined
         ? this.color + "InputFullBorder " + this.color + "BorderColor"
+        : this.color == undefined && this.type !== undefined
+        ? "primaryInput" +
+          this.type.charAt(0).toUpperCase() +
+          this.type.substr(1).toLowerCase() +
+          "Border primaryBorderColor"
         : this.color == undefined && this.type == undefined
         ? "primaryInputFullBorder primaryBorderColor"
         : null;

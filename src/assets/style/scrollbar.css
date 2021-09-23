@@ -1,0 +1,21 @@
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	@apply rounded-md;
+	background: var(--lightGreyColor);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	@apply rounded-md;
+	background: var(--primaryColor);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--primary-darker);
+}

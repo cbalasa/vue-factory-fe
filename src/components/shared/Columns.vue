@@ -1,13 +1,15 @@
 <template>
-  <div class="flex justify-between w-full primaryBackgroundColor">
-    <div class="flex" :class="wrapper ? 'wrapper' : null">
+  <div class="flex justify-between w-full" :class="[color + 'BackgroundColor']">
+    <div class="flex flex-wrap wrapper">
       <div
         v-for="(col, index) in text"
         :key="index"
         :class="[
-          'w-' + 12 / text.length + '/12',
-          index == 0 ? 'pr-4' : index == text.length - 1 ? 'pl-4' : 'px-4',
+          'w-full',
+          'md:w-' + 12 / text.length + '/12 ',
+          'items-' + align,
         ]"
+        class="md:mb-0 mb-6 md:px-4 flex"
       >
         <component
           :is="col.type"
@@ -21,6 +23,16 @@
           :placeholder="col.props.placeholder"
           :align="col.props.align"
           :marginTop="col.props.marginTop"
+          :marginBottom="col.props.marginBottom"
+          :image="col.props.image"
+          :parentName="col.props.parentName"
+          :height="col.props.height"
+          :parallax="col.props.parallax"
+          :combinations="col.props.combinations"
+          :onClick="col.props.onClick"
+          :textAlign="col.props.textAlign"
+          :icon="col.props.icon"
+          :size="col.props.size"
         ></component>
       </div>
     </div>
@@ -39,8 +51,13 @@ export default {
       type: Array,
       require: true,
     },
-    wrapper: {
-      type: Boolean,
+
+    align: {
+      type: String,
+      default: "start",
+    },
+    color: {
+      type: String,
     },
   },
 };

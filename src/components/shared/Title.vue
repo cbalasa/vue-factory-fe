@@ -1,7 +1,12 @@
 <template>
   <span
     class="z-50 text-3xl font-bold"
-    :class="[color == !undefined] ? color + 'TextColor' : null"
+    :class="[
+      color + 'TextColor',
+      'text-' + textAlign,
+      'mt-' + marginTop,
+      'mb-' + marginBottom,
+    ]"
     >{{ text }}</span
   >
 </template>
@@ -18,6 +23,16 @@ export default {
     color: {
       type: String,
       default: "",
+    },
+    textAlign: {
+      type: String,
+      default: "left",
+    },
+    marginTop: {
+      type: Number,
+    },
+    marginBottom: {
+      type: Number,
     },
   },
 };

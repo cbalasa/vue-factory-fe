@@ -55,6 +55,9 @@
 .lightgreyBackgroundColor {
 	background-color: var(--lightGreyColor);
 }
+.whiteBackgroundColor {
+	background-color: white;
+}
 /* ************************************************/
 /*                    BORDERS                     */
 /* ************************************************/
@@ -81,4 +84,7 @@
 }
 .lightgreyBorderColor {
 	border-color: var(--lightGreyColor);
+}
+.whiteBorderColor {
+	border-color: white;
 }

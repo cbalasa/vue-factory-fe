@@ -1,5 +1,5 @@
 <template>
-  <div :class="wrapper ? 'wrapper' : null">
+  <div :class="[wrapper ? 'wrapper' : null, color + 'BackgroundColor']">
     <div
       v-for="(component, index) in components"
       :key="index"
@@ -16,12 +16,18 @@
         :placeholder="component.props.placeholder"
         :align="component.props.align"
         :marginTop="component.props.marginTop"
+        :marginBottom="component.props.marginBottom"
         :image="component.props.image"
         :parentName="component.props.parentName"
         :height="component.props.height"
         :parallax="component.props.parallax"
         :combinations="component.props.combinations"
+        :components="component.props.components"
         :onClick="component.props.onClick"
+        :textAlign="component.props.textAlign"
+        :icon="component.props.icon"
+        :size="component.props.size"
+        :wrapper="component.props.wrapper"
       ></component>
     </div>
   </div>
@@ -36,6 +42,9 @@ export default {
     },
     wrapper: {
       type: Boolean,
+    },
+    color: {
+      type: String,
     },
   },
 };
