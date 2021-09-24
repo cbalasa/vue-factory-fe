@@ -1,6 +1,16 @@
 {
 	"projectInformation": {
-		"appName": "test-web"
+		"appName": "test-web",
+		"colors": {
+			"primary": "#9c27b0",
+			"secondary": "#f3afff",
+			"lightGrey": "rgb(207, 207, 207)",
+			"darkGrey": "rgb(36, 36, 36)",
+			"info": "#00bcd4",
+			"success": "#4caf50",
+			"warning": "#ff9800",
+			"danger": "#f44336"
+		}
 	},
 	"pages": {
 		"about": {

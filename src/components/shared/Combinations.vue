@@ -28,6 +28,7 @@
         :icon="component.props.icon"
         :size="component.props.size"
         :wrapper="component.props.wrapper"
+        :colorBackground="component.props.colorBackground"
       ></component>
     </div>
   </div>

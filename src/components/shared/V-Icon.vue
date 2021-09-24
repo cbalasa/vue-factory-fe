@@ -1,6 +1,14 @@
 <template>
   <div class="flex" :class="'justify-' + align">
-    <font-awesome-icon :icon="icon" :color="color" :size="size" />
+    <div
+      class="rounded-full"
+      :class="colorBackground + 'BackgroundColor px-7 py-6'"
+      v-if="colorBackground !== undefined"
+    >
+      <font-awesome-icon :icon="icon" :color="color" :size="size" />
+    </div>
+
+    <font-awesome-icon :icon="icon" :color="color" :size="size" v-else />
   </div>
 </template>
 <script>
@@ -20,6 +28,9 @@ export default {
     align: {
       type: String,
       default: "left",
+    },
+    colorBackground: {
+      type: String,
     },
   },
 };

@@ -13,6 +13,7 @@
       items-center
       align-middle
       m-auto
+      card
     "
     :class="[color + 'BackgroundColor']"
   >

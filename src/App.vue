@@ -4,17 +4,23 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
+    <Navigation />
     <router-view />
   </div>
 </template>
 <script>
 export default {
   mounted() {
-    console.log(this.$projectJSON);
-    // console.log("app", this.$refs.navigation.clientHeight);
-    //change colors based on json file
-    // const root = document.documentElement;
-    // root.style.setProperty("--primaryColor", "#CCCC00");
+    const root = document.documentElement;
+    // "primary": "#1768AC",
+    // root.style.setProperty("--secondaryColor", "#FFEBA1");
+    let colorsKeys = Object.keys(this.$projectJSON.projectInformation.colors);
+    colorsKeys.forEach((key) => {
+      root.style.setProperty(
+        "--" + key + "Color",
+        this.$projectJSON.projectInformation.colors[key]
+      );
+    });
   },
 };
 </script>

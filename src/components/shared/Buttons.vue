@@ -7,8 +7,8 @@
       :class="[typeFn(), roundedFn(), sizeFn(), colorFn()]"
       class="flex items-center justify-center px-8"
       style="min-width: 88px"
-      @click="onClick"
     >
+      <!-- @click="onClick" -->
       <font-awesome-icon
         icon="user-secret"
         size="xs"

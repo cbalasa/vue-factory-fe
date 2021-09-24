@@ -9,7 +9,7 @@
           'md:w-' + 12 / text.length + '/12 ',
           'items-' + align,
         ]"
-        class="md:mb-0 mb-6 md:px-4 flex"
+        class="md:mb-0 mb-6 md:px-4 flex flex-1"
       >
         <component
           :is="col.type"
@@ -33,6 +33,7 @@
           :textAlign="col.props.textAlign"
           :icon="col.props.icon"
           :size="col.props.size"
+          :colorBackground="col.props.colorBackground"
         ></component>
       </div>
     </div>

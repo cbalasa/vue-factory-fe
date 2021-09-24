@@ -112,12 +112,14 @@ export default {
                         props: {
                           icon: "save",
                           size: "2x",
+                          align: "center",
                         },
                       },
                       {
                         type: "Title",
                         props: {
                           text: "Corporis voluptates sit",
+                          textAlign: "center",
                         },
                       },
                       {
@@ -133,12 +135,14 @@ export default {
                         props: {
                           icon: "save",
                           size: "2x",
+                          align: "center",
                         },
                       },
                       {
                         type: "Title",
                         props: {
                           text: "Corporis voluptates sit",
+                          textAlign: "center",
                         },
                       },
                       {
@@ -162,12 +166,14 @@ export default {
                         props: {
                           icon: "save",
                           size: "2x",
+                          align: "center",
                         },
                       },
                       {
                         type: "Title",
                         props: {
                           text: "Corporis voluptates sit",
+                          textAlign: "center",
                         },
                       },
                       {
@@ -183,12 +189,14 @@ export default {
                         props: {
                           icon: "save",
                           size: "2x",
+                          align: "center",
                         },
                       },
                       {
                         type: "Title",
                         props: {
                           text: "Corporis voluptates sit",
+                          textAlign: "center",
                         },
                       },
                       {
@@ -345,7 +353,7 @@ export default {
                                     },
                                   },
                                   {
-                                    type: "Title",
+                                    type: "SubTitle",
                                     props: {
                                       text: "Lorem Ipsum",
                                       textAlign: "center",
@@ -383,7 +391,7 @@ export default {
                                     },
                                   },
                                   {
-                                    type: "Title",
+                                    type: "SubTitle",
                                     props: {
                                       text: "Lorem Ipsum",
                                       textAlign: "center",
@@ -421,7 +429,7 @@ export default {
                                     },
                                   },
                                   {
-                                    type: "Title",
+                                    type: "SubTitle",
                                     props: {
                                       text: "Lorem Ipsum",
                                       textAlign: "center",
@@ -459,7 +467,7 @@ export default {
                                     },
                                   },
                                   {
-                                    type: "Title",
+                                    type: "SubTitle",
                                     props: {
                                       text: "Lorem Ipsum",
                                       textAlign: "center",
