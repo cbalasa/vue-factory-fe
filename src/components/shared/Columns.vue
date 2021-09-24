@@ -9,7 +9,7 @@
           'md:w-' + 12 / text.length + '/12 ',
           'items-' + align,
         ]"
-        class="md:mb-0 mb-6 md:px-4 flex flex-1"
+        class="md:mb-0 mb-6 md:px-4 flex flex-1 justify-center"
       >
         <component
           :is="col.type"
