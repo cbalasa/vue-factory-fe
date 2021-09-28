@@ -21,7 +21,9 @@
       :is="components[0].type"
       :components="components[0].props.components"
       :wrapper="true"
+      v-if="components"
     />
+    <slot v-else></slot>
   </div>
 </template>
 <script>

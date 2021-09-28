@@ -1,11 +1,11 @@
 <template>
   <div
     :class="['justify-' + align, 'mt-' + marginTop, 'mb-' + marginBottom]"
-    class="flex z-50"
+    class="flex z-50 self-center"
   >
     <button
       :class="[typeFn(), roundedFn(), sizeFn(), colorFn()]"
-      class="flex items-center justify-center px-8"
+      class="flex items-center justify-center px-6"
       style="min-width: 88px"
     >
       <!-- @click="onClick" -->
@@ -16,7 +16,7 @@
         class="relative h-3"
         v-if="icon !== undefined"
       />
-      <span v-if="type !== 'iconOnly'" class="text-sm">{{ label }}</span>
+      <span v-if="type !== 'iconOnly'" class="text-sm">{{ text }}</span>
     </button>
   </div>
 </template>
@@ -45,7 +45,7 @@ export default {
       type: String,
       required: false,
     },
-    label: {
+    text: {
       type: String,
       required: false,
     },
@@ -84,21 +84,21 @@ export default {
     },
     sizeFn() {
       return this.size == undefined
-        ? this.type == "iconOnly" || this.label == undefined
-          ? "py-4"
-          : "py-2"
+        ? this.type == "iconOnly" || this.text == undefined
+          ? "py-2"
+          : "py-1"
         : this.size == "small"
-        ? this.type == "iconOnly" || this.label == undefined
-          ? "py-3"
-          : "py-2"
+        ? this.type == "iconOnly" || this.text == undefined
+          ? "py-2"
+          : "py-1"
         : this.size == "medium"
-        ? this.type == "iconOnly" || this.label == undefined
-          ? "py-5"
-          : "py-4"
+        ? this.type == "iconOnly" || this.text == undefined
+          ? "py-4"
+          : "py-3"
         : this.size == "large"
-        ? this.type == "iconOnly" || this.label == undefined
-          ? "py-7"
-          : "py-6"
+        ? this.type == "iconOnly" || this.text == undefined
+          ? "py-6"
+          : "py-5"
         : null;
     },
     colorFn() {

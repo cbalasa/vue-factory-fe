@@ -1,6 +1,20 @@
 <template>
-  <div class="flex flex-col pb-10">
-    <Combinations :components="combinations.components" />
+  <div class="flex flex-col pb-10 justify-center m-auto">
+    <!-- <div class="w-6/12 m-auto">
+      <Card> <V-Form></V-Form></Card>
+    </div> -->
+
+    <ToggleSwitch class="mt-16" />
+    <!-- <Modal
+      class="mt-4"
+      type="success"
+      title="Bravo, ma!"
+      text="I-ai rupt pancreasul"
+      :showAlert="showAlert"
+      v-model="showAlert"
+      :confirm="true"
+    /> -->
+    <!-- <Combinations :components="combinations.components" /> -->
     <!-- <Banner
       image="banner.jpg"
       :parentName="$options.name"
@@ -13,11 +27,11 @@
     <!-- <Columns :text="textCol" :wrapper="true" align="center" /> -->
 
     <!-- <Body text="Test" /> -->
-    <!-- <Buttons label="About us" color="primary" :marginTop="5" align="center" /> -->
-    <!-- <CheckBox label="test" />
+    <!-- <Buttons text="About us" color="primary" :marginTop="5" align="center" /> -->
+    <!-- <CheckBox text="test" />
     <Input />
-    <RadioButton label="test" name="test" />
-    <RadioButton label="test2" name="test" />
+    <RadioButton text="test" name="test" />
+    <RadioButton text="test2" name="test" />
     <SingleAndMultiSelect :list="simpleArray" />
     <SubTitle text="Merge si asa boss" textAlign="right" />
     <Title text="asta este un titlu" textAlign="left" />
@@ -33,6 +47,7 @@ export default {
   name: "Home",
   data() {
     return {
+      showAlert: true,
       combinations: {
         components: [
           {
@@ -59,7 +74,7 @@ export default {
                 {
                   type: "Buttons",
                   props: {
-                    label: "Get Started",
+                    text: "Get Started",
                     type: "filled",
                     color: "primary",
                     align: "center",
@@ -96,7 +111,7 @@ export default {
                       {
                         type: "Buttons",
                         props: {
-                          label: "About us.",
+                          text: "About us.",
                           type: "filled",
                         },
                       },

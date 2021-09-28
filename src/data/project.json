@@ -43,7 +43,7 @@
 										{
 											"type": "Buttons",
 											"props": {
-												"label": "Get Started",
+												"text": "Get Started",
 												"type": "filled",
 												"color": "primary",
 												"align": "center",

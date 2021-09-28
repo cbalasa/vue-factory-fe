@@ -5,10 +5,21 @@
       :class="colorBackground + 'BackgroundColor px-7 py-6'"
       v-if="colorBackground !== undefined"
     >
-      <font-awesome-icon :icon="icon" :color="color" :size="size" />
+      <font-awesome-icon
+        :icon="icon"
+        :color="color"
+        :size="size"
+        @click="$emit('clicked', true)"
+      />
     </div>
 
-    <font-awesome-icon :icon="icon" :color="color" :size="size" v-else />
+    <font-awesome-icon
+      :icon="icon"
+      :color="color"
+      :size="size"
+      v-else
+      @click="$emit('clicked', true)"
+    />
   </div>
 </template>
 <script>

@@ -9,15 +9,18 @@
       />
       <span class="text-xs">{{ label }}</span>
     </div>
-    <input
+    <!-- <input /> -->
+    <Input
       placeholder="Select an item"
-      class="px-2 py-1 rounded-md border w-full text-sm cursor-pointer"
-      @focus="inputFocused = !inputFocused"
+      classs="px-2 py-1 w-full text-sm"
+      @focused="focused()"
       v-model="selected"
+      :valueProps="selected"
       :class="[colorFn()]"
+      :type="type"
       name="s123540540540"
+      cursor="pointer"
     />
-
     <input
       type="text"
       placeholder="test"
@@ -28,7 +31,8 @@
     <ul
       v-if="inputFocused"
       @focusout="inputFocused = false"
-      tabindex="0"
+      :tabindex="tabIndex"
+      :ref="'ul' + tabIndex"
       class="
         flex flex-col
         w-11/12
@@ -103,6 +107,9 @@ export default {
     };
   },
   methods: {
+    focused() {
+      return (this.inputFocused = !this.inputFocused);
+    },
     selectThis(option) {
       if (typeof option !== "object") {
         if (this.multiselect) {
@@ -155,8 +162,18 @@ export default {
         ? this.color + "InputFullBorder " + this.color + "BorderColor"
         : this.color == undefined && this.type == undefined
         ? "primaryInputFullBorder primaryBorderColor"
+        : this.color == undefined && this.type != undefined
+        ? "primaryInput" +
+          this.type.charAt(0).toUpperCase() +
+          this.type.substr(1).toLowerCase() +
+          "Border primaryBorderColor"
         : null;
     },
+  },
+  updated() {
+    if (this.inputFocused) {
+      this.$refs["ul" + this.tabIndex].focus();
+    }
   },
   props: {
     type: {
@@ -190,6 +207,10 @@ export default {
     },
     list: {
       type: Array,
+    },
+    tabIndex: {
+      type: Number,
+      default: 0,
     },
   },
 };

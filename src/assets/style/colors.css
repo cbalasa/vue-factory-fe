@@ -58,6 +58,9 @@
 .whiteBackgroundColor {
 	background-color: white;
 }
+.transparentBackgroundColor {
+	background-color: transparent;
+}
 /* ************************************************/
 /*                    BORDERS                     */
 /* ************************************************/
