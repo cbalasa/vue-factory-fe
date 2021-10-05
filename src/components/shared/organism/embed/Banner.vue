@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full relative mt-10">
+  <div class="w-full relative">
     <div v-if="cover">
       <ParallaxContainer v-if="parallax">
-        <ParallaxElement :factor="-0.25">
+        <ParallaxElement :factor="-0.35">
           <div
             :style="{
               backgroundImage: 'url(' + backImg + ')',
@@ -34,7 +34,10 @@
         "
         :style="{ height: bannerHeight + 'px' }"
       >
-        <Combinations :components="combinations.components" />
+        <Combinations
+          :components="combinations"
+          v-if="combinations !== undefined"
+        />
       </div>
     </div>
     <div v-else>

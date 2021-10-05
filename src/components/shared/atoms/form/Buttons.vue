@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['justify-' + align, 'mt-' + marginTop, 'mb-' + marginBottom]"
-    class="flex z-50 self-center"
+    class="flex z-50 self-center button"
   >
     <button
       :class="[typeFn(), roundedFn(), sizeFn(), colorFn()]"
@@ -16,7 +16,9 @@
         class="relative h-3"
         v-if="icon !== undefined"
       />
-      <span v-if="type !== 'iconOnly'" class="text-sm">{{ text }}</span>
+      <span v-if="type !== 'iconOnly'" class="uppercase" :class="textSize()">{{
+        text
+      }}</span>
     </button>
   </div>
 </template>
@@ -80,6 +82,17 @@ export default {
         ? "rounded-md"
         : this.rounded
         ? "rounded-md"
+        : null;
+    },
+    textSize() {
+      return this.size == undefined
+        ? "text-sm"
+        : this.size == "small"
+        ? "text-sm"
+        : this.size == "medium"
+        ? "text-md"
+        : this.size == "large"
+        ? "text-lg"
         : null;
     },
     sizeFn() {

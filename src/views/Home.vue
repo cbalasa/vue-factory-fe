@@ -3,7 +3,7 @@
     <!-- <div class="w-6/12 m-auto">
       <Card> <V-Form></V-Form></Card>
     </div> -->
-
+    <Carousel :popUp="true" />
     <ToggleSwitch class="mt-16" />
     <!-- <Modal
       class="mt-4"

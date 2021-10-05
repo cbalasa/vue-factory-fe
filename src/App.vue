@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <Navigation class="relative" />
+    <Navigation colorBackground="white" />
+
     <router-view />
   </div>
 </template>
@@ -12,8 +13,6 @@
 export default {
   mounted() {
     const root = document.documentElement;
-    // "primary": "#1768AC",
-    // root.style.setProperty("--secondaryColor", "#FFEBA1");
     let colorsKeys = Object.keys(this.$projectJSON.projectInformation.colors);
     colorsKeys.forEach((key) => {
       root.style.setProperty(

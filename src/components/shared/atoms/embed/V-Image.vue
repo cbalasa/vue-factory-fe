@@ -1,8 +1,5 @@
 <template>
-  <img
-    :src="backImg"
-    class="no-repeat m-auto relative w-full h-full flex object-contain"
-  />
+  <img :src="backImg" class="no-repeat relative h-full flex object-contain" />
 </template>
 <script>
 export default {

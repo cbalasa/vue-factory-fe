@@ -1,0 +1,14 @@
+.iconCarousel:hover {
+	background-color: var(--primaryColor);
+	-webkit-transform: scale(1.03);
+	-ms-transform: scale(1.03);
+	transform: scale(1.03);
+	transition: 0.4s;
+	@apply opacity-100 rounded-full shadow-md;
+}
+.iconCarousel {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	transition: 0.4s;
+}

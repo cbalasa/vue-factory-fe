@@ -29,6 +29,8 @@
         :size="component.props.size"
         :wrapper="component.props.wrapper"
         :colorBackground="component.props.colorBackground"
+        :fontWeight="component.props.fontWeight"
+        :uppercase="component.props.uppercase"
       ></component>
     </div>
   </div>

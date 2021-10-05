@@ -2,7 +2,15 @@
   <div class="flex" :class="'justify-' + align">
     <div
       class="rounded-full"
-      :class="colorBackground + 'BackgroundColor px-7 py-6'"
+      :class="
+        type == 'outline'
+          ? colorBackground +
+            'BorderColor border-2 px-' +
+            paddingHorizontal +
+            ' py-' +
+            paddingVertical
+          : colorBackground + 'BackgroundColor px-7 py-6'
+      "
       v-if="colorBackground !== undefined"
     >
       <font-awesome-icon
@@ -17,6 +25,7 @@
       :icon="icon"
       :color="color"
       :size="size"
+      :class="color + 'TextColor'"
       v-else
       @click="$emit('clicked', true)"
     />
@@ -42,6 +51,18 @@ export default {
     },
     colorBackground: {
       type: String,
+    },
+    type: {
+      type: String,
+      default: "outline",
+    },
+    paddingHorizontal: {
+      type: Number,
+      default: 8,
+    },
+    paddingVertical: {
+      type: Number,
+      default: 6,
     },
   },
 };

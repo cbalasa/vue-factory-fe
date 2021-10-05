@@ -22,7 +22,7 @@
   </form>
 </template>
 <script>
-import SingleAndMultiSelect from "./SingleAndMultiSelect.vue";
+import SingleAndMultiSelect from "../../molecules/form/SingleAndMultiSelect.vue";
 export default {
   components: { SingleAndMultiSelect },
   name: "V-Form",

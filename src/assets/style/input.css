@@ -43,7 +43,11 @@
 	border-color: transparent;
 	border: 2px solid var(--lightGreyColor);
 }
-
+.whiteInputFullBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border: 2px solid #fff;
+}
 /* BOTTOM BORDER */
 .primaryInputBottomBorder:focus {
 	outline: none;
@@ -84,4 +88,9 @@
 	outline: none;
 	border-color: transparent;
 	border-bottom: 2px solid var(--lightGreyColor);
+}
+.whiteInputBottomBorder:focus {
+	outline: none;
+	border-color: transparent;
+	border-bottom: 2px solid #fff;
 }

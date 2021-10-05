@@ -21,6 +21,7 @@ for (let key in Components) {
 
 import projectJSON from "./data/project.json";
 Vue.prototype.$projectJSON = projectJSON;
+
 new Vue({
 	router,
 	render: (h) => h(App)

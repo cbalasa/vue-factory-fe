@@ -1,11 +1,14 @@
 <template>
   <span
-    class="z-50 text-lg font-bold mb-2 mt-4"
+    class="z-50"
     :class="[
       color + 'TextColor',
       'text-' + textAlign,
       'mt-' + marginTop,
       'mb-' + marginBottom,
+      'text-' + size,
+      'font-' + fontWeight,
+      uppercase ? 'uppercase' : null,
     ]"
     >{{ text }}</span
   >
@@ -30,9 +33,23 @@ export default {
     },
     marginTop: {
       type: Number,
+      default: 4,
     },
     marginBottom: {
       type: Number,
+      default: 2,
+    },
+    size: {
+      type: String,
+      default: "lg",
+    },
+    fontWeight: {
+      type: String,
+      default: "bold",
+    },
+    uppercase: {
+      type: Boolean,
+      default: false,
     },
   },
 };

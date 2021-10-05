@@ -18,7 +18,6 @@
           :name="col.props.name"
           :rounded="col.props.rounded"
           :text="col.props.text"
-          :components="col.props.components"
           :label="col.props.label"
           :placeholder="col.props.placeholder"
           :align="col.props.align"
@@ -29,11 +28,15 @@
           :height="col.props.height"
           :parallax="col.props.parallax"
           :combinations="col.props.combinations"
+          :components="col.props.components"
           :onClick="col.props.onClick"
           :textAlign="col.props.textAlign"
           :icon="col.props.icon"
           :size="col.props.size"
+          :wrapper="col.props.wrapper"
           :colorBackground="col.props.colorBackground"
+          :fontWeight="col.props.fontWeight"
+          :uppercase="col.props.uppercase"
         ></component>
       </div>
     </div>
