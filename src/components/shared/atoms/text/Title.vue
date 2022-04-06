@@ -1,6 +1,6 @@
 <template>
   <span
-    class="z-50"
+    class="z-50 flex"
     :class="[
       color + 'TextColor',
       'justify-' + align,
@@ -35,7 +35,7 @@ export default {
     },
     align: {
       type: String,
-      default: "right",
+      default: "center",
     },
     marginTop: {
       type: Number,
