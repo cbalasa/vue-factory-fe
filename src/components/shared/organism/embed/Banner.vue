@@ -44,11 +44,19 @@
       <div
         class="z-50 py-10 flex w-full flex-col"
         :style="{ height: bannerHeight + 'px' }"
+        v-if="combinations"
       >
         <Combinations
           :components="combinations"
           v-if="combinations !== undefined"
         />
+      </div>
+      <div
+        class="z-50 py-10 flex w-full flex-col"
+        :style="{ height: bannerHeight + 'px' }"
+        v-else
+      >
+        <slot />
       </div>
       <!-- <Columns align="center">
         <template #first>
