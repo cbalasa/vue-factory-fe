@@ -1,10 +1,90 @@
 <template>
   <div class="flex flex-col pb-10 justify-center m-auto">
+    <MainWrapper class="flex-col">
+      <form action="" ref="form">
+        <!-- <ToggleSwitch icon="save" text="True?" name="Test" v-model="checkbox" /> -->
+        <!-- <SingleAndMultiSelect
+          :list="list"
+          name="test"
+          :multiselect="true"
+          icon="save"
+          :marginTop="2"
+          :marginBottom="2"
+        /> -->
+      </form>
+      <!-- <Card>
+        <SingleAndMultiSelect
+          :list="list"
+          name="test"
+          :multiselect="true"
+          icon="save"
+          :marginTop="2"
+          :marginBottom="2"
+      /></Card> -->
+      <ConfirmationAlert
+        text="I-ai spart pancreasul"
+        title="Bravo ma!"
+        :showAlert="show"
+        :confirm="true"
+        position="top-left"
+        type="success"
+        confirmButtonColor="warning"
+        cancelButtonColor="info"
+      />
+      <Notifications
+        :showAlert="true"
+        text="bravooooooo!!!"
+        position="bottom-right"
+        type="info"
+      />
+      <div class="flex">
+        <div class="flex w-full">
+          <NavigationTabs
+            type="horizontal"
+            :centerBodyText="true"
+            :list="navigationData"
+          />
+        </div>
+      </div>
+      <!-- <Buttons text="click me" @clicked="sendForm()" /> -->
+
+      <!-- <Title
+        text="Lorem ipsum"
+        color="primary"
+        align="start"
+        :marginTop="2"
+        :marginBottom="4"
+        :uppercase="true"
+        :italic="true"
+        text-size="5xl"
+      />
+      <Hyperlink
+        text="Lorem ipsum dolores dsmfdmfdmfdf"
+        color="primary"
+        align="start"
+        :marginTop="2"
+        :marginBottom="4"
+        :italic="true"
+        >Test</Hyperlink
+      >
+      <SubTitle text="Lorem ipsum dlores caa" /> -->
+      <div class="w-4/12">
+        <V-Image image="banner.jpg" :parentName="$options.name" />
+        <SingleAndMultiSelect :list="list" :multiselect="true" />
+      </div>
+    </MainWrapper>
+    <!-- <Banner
+      image="banner.jpg"
+      :parentName="$options.name"
+      height="full"
+      :parallax="true"
+      :combinations="bannerCombinations"
+    /> -->
     <!-- <div class="w-6/12 m-auto">
       <Card> <V-Form></V-Form></Card>
     </div> -->
-    <Carousel :popUp="true" />
-    <ToggleSwitch class="mt-16" />
+    <!-- <Carousel :popUp="true" />
+    <MainWrapper> <ToggleSwitch class="mt-16" /></MainWrapper> -->
     <!-- <Modal
       class="mt-4"
       type="success"
@@ -15,27 +95,21 @@
       :confirm="true"
     /> -->
     <!-- <Combinations :components="combinations.components" /> -->
-    <!-- <Banner
-      image="banner.jpg"
-      :parentName="$options.name"
-      height="full"
-      :parallax="false"
-      :combinations="bannerCombinations"
-    /> -->
+
     <!-- <Columns :text="textCol" color="secondary" align="center" /> -->
 
     <!-- <Columns :text="textCol" :wrapper="true" align="center" /> -->
 
-    <!-- <Body text="Test" /> -->
-    <!-- <Buttons text="About us" color="primary" :marginTop="5" align="center" /> -->
-    <!-- <CheckBox text="test" />
+    <!-- <Body text="Test" />
+    <Buttons text="About us" color="primary" :marginTop="5" align="center" />
+    <CheckBox text="test" />
     <Input />
     <RadioButton text="test" name="test" />
     <RadioButton text="test2" name="test" />
     <SingleAndMultiSelect :list="simpleArray" />
     <SubTitle text="Merge si asa boss" textAlign="right" />
     <Title text="asta este un titlu" textAlign="left" />
-    <V-Image image="banner.jpg" :parentName="$options.name" />
+  
     <Card> <V-Image image="banner.jpg" :parentName="$options.name" /></Card>
     <Columns :text="textCol" :wrapper="true" align="center" /> -->
     <!-- <Combinations :components="firstCombinations" :wrapper="true" /> -->
@@ -47,7 +121,73 @@ export default {
   name: "Home",
   data() {
     return {
+      show: true,
+      navigationData: [
+        {
+          icon: "user-circle",
+          title: "Profile",
+          text: "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.",
+        },
+        {
+          icon: "envelope-open-text",
+          title: "Message",
+          text: "I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.",
+        },
+        {
+          icon: "wrench",
+          title: "Settings",
+          text: "I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.",
+        },
+      ],
+      list: [
+        {
+          label: "1",
+          id: 1,
+        },
+        {
+          label: "2",
+          id: 1,
+        },
+        {
+          label: "3",
+          id: 1,
+        },
+        {
+          label: "4",
+          id: 1,
+        },
+        {
+          label: "5",
+          id: 1,
+        },
+      ],
+      checkbox: true,
       showAlert: true,
+      bannerCombinations: [
+        {
+          type: "Title",
+          props: {
+            text: "Build Better Websites With Bikin",
+            textAlign: "center",
+          },
+        },
+        {
+          type: "SubTitle",
+          props: {
+            text: "We are team of talented designers making websites with Bootstrap",
+          },
+        },
+        {
+          type: "Buttons",
+          props: {
+            text: "Get Started",
+            type: "filled",
+            color: "primary",
+            align: "center",
+            marginTop: 5,
+          },
+        },
+      ],
       combinations: {
         components: [
           {
@@ -514,8 +654,14 @@ export default {
     };
   },
   methods: {
-    testClick() {
-      alert("clicked");
+    sendForm() {
+      // event.preventDefault();
+      let form = this.$refs.form;
+      let formData = new FormData(form);
+
+      for (var pair of formData.entries()) {
+        console.log(pair[0] + ", " + pair[1]);
+      }
     },
   },
 };

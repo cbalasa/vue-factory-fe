@@ -3,12 +3,14 @@
     class="z-50"
     :class="[
       color + 'TextColor',
+      'justify-' + align,
       'text-' + textAlign,
       'mt-' + marginTop,
       'mb-' + marginBottom,
-      'text-' + size,
+      'text-' + textSize,
       'font-' + fontWeight,
       uppercase ? 'uppercase' : null,
+      italic ? 'italic' : '',
     ]"
     >{{ text }}</span
   >
@@ -31,6 +33,10 @@ export default {
       type: String,
       default: "left",
     },
+    align: {
+      type: String,
+      default: "right",
+    },
     marginTop: {
       type: Number,
       default: 4,
@@ -39,7 +45,7 @@ export default {
       type: Number,
       default: 2,
     },
-    size: {
+    textSize: {
       type: String,
       default: "lg",
     },
@@ -48,6 +54,10 @@ export default {
       default: "bold",
     },
     uppercase: {
+      type: Boolean,
+      default: false,
+    },
+    italic: {
       type: Boolean,
       default: false,
     },

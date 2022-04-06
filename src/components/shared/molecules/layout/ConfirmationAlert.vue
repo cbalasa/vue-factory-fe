@@ -1,5 +1,5 @@
 <template>
-  <div :class="position.includes('top') ? 'relative' : null" v-if="show">
+  <div v-if="show">
     <div
       class="
         absolute
@@ -28,21 +28,27 @@
         </span>
         <span class="flex items-center text-center mx-auto">{{ text }} </span>
         <template v-if="!confirm">
-          <Buttons text="OK" :rounded="true" class="my-2" />
+          <Buttons
+            text="OK"
+            :rounded="true"
+            class="my-2"
+            :color="confirmButtonColor"
+          />
         </template>
         <template v-else>
           <div class="flex w-8/12 justify-between items-center align-middle">
             <Buttons
-              text="Delete it!"
+              :text="confirmText"
               :rounded="true"
               class="my-2"
-              color="success"
+              :color="confirmButtonColor"
             />
             <Buttons
-              text="Cancel"
+              :text="cancelText"
               :rounded="true"
               class="my-2"
-              color="danger"
+              :color="cancelButtonColor"
+              @clicked="clickClose()"
             />
           </div>
         </template>
@@ -53,7 +59,7 @@
 </template>
 <script>
 export default {
-  name: "Modal",
+  name: "ConfirmationAlert",
   data() {
     return {
       show: false,
@@ -84,6 +90,20 @@ export default {
       type: Boolean,
       default: false,
     },
+    confirmText: {
+      type: String,
+      default: "Ok",
+    },
+    cancelText: {
+      type: String,
+      default: "Cancel",
+    },
+    confirmButtonColor: {
+      type: String,
+    },
+    cancelButtonColor: {
+      type: String,
+    },
   },
   computed: {
     positionAlert() {
@@ -93,19 +113,19 @@ export default {
       } else if (this.position == "bottom-right") {
         positionClasses = " bottom-0 right-0";
       } else if (this.position == "bottom-left") {
-        positionClasses = " bottom-0 ";
+        positionClasses = " bottom-0 left-0 ";
       } else if (this.position == "center-left") {
-        positionClasses = "centerBoxVertically ";
+        positionClasses = "centerBoxVertically left-0";
       } else if (this.position == "center") {
         positionClasses = "centerBox ";
       } else if (this.position == "center-right") {
         positionClasses = "centerBoxVertically right-0 ";
       } else if (this.position == "top-right") {
-        positionClasses = "top-0 right-0 ";
+        positionClasses = "top-0 right-0";
       } else if (this.position == "top-center") {
         positionClasses = "top-0 centerBoxHorizontally";
       } else if (this.position == "top-left") {
-        positionClasses = "top-0 ";
+        positionClasses = "top-0 left-0";
       }
       return positionClasses;
     },

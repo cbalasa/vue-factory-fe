@@ -14,8 +14,9 @@
       align-middle
       m-auto
       card
+      mb-4
     "
-    :class="[color + 'BackgroundColor']"
+    :class="[colorBackground + 'BackgroundColor']"
   >
     <component
       :is="components[0].type"
@@ -32,7 +33,7 @@ export default {
 
   props: {
     components: {},
-    color: {
+    colorBackground: {
       type: String,
       default: "white",
     },

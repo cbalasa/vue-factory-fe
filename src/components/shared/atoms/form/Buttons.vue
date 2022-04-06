@@ -1,12 +1,13 @@
 <template>
   <div
     :class="['justify-' + align, 'mt-' + marginTop, 'mb-' + marginBottom]"
-    class="flex z-50 self-center button"
+    class="flex z-50 button self-center"
   >
     <button
       :class="[typeFn(), roundedFn(), sizeFn(), colorFn()]"
       class="flex items-center justify-center px-6"
       style="min-width: 88px"
+      @click="$emit('clicked', true)"
     >
       <!-- @click="onClick" -->
       <font-awesome-icon
@@ -26,10 +27,6 @@
 export default {
   name: "Buttons",
   props: {
-    onClick: {
-      type: Function,
-      required: false,
-    },
     type: {
       type: String,
       required: false,

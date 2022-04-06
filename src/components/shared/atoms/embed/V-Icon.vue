@@ -1,16 +1,21 @@
 <template>
-  <div class="flex" :class="'justify-' + align">
+  <div class="flex items-center" :class="'justify-' + align">
     <div
       class="rounded-full"
-      :class="
+      :class="[
         type == 'outline'
           ? colorBackground +
             'BorderColor border-2 px-' +
             paddingHorizontal +
             ' py-' +
             paddingVertical
-          : colorBackground + 'BackgroundColor px-7 py-6'
-      "
+          : colorBackground +
+            'BackgroundColor px-' +
+            paddingHorizontal +
+            ' py-' +
+            paddingVertical,
+        color + 'TextColor',
+      ]"
       v-if="colorBackground !== undefined"
     >
       <font-awesome-icon
@@ -21,14 +26,15 @@
       />
     </div>
 
-    <font-awesome-icon
-      :icon="icon"
-      :color="color"
-      :size="size"
-      :class="color + 'TextColor'"
-      v-else
-      @click="$emit('clicked', true)"
-    />
+    <div v-else :class="'px-' + paddingHorizontal + ' py-' + paddingVertical">
+      <font-awesome-icon
+        :icon="icon"
+        :color="color"
+        :size="size"
+        :class="color + 'TextColor'"
+        @click="$emit('clicked', true)"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -54,15 +60,19 @@ export default {
     },
     type: {
       type: String,
-      default: "outline",
+      default: "",
     },
     paddingHorizontal: {
       type: Number,
-      default: 8,
+      default() {
+        return this.type == "outline" ? 8 : 0;
+      },
     },
     paddingVertical: {
       type: Number,
-      default: 6,
+      default() {
+        return this.type == "outline" ? 6 : 0;
+      },
     },
   },
 };

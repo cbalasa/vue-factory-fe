@@ -34,7 +34,9 @@
       :rounded="true"
       size="small"
       :type="
-        colorBackground == 'primary' || colorBackground == 'white'
+        colorBackground == 'primary' ||
+        colorBackground == 'white' ||
+        colorBackground == 'transparent'
           ? 'outline'
           : null
       "

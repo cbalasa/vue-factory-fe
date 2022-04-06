@@ -1,13 +1,12 @@
 <template>
-  <div class="flex flex-col justify-start items-start wrapper relative">
-    <div class="flex items-center mb-1">
-      <font-awesome-icon
-        :icon="icon"
-        size="xs"
-        class="mr-1"
-        v-if="icon !== undefined"
-      />
-      <span class="text-xs">{{ label }}</span>
+  <div
+    class="flex flex-col justify-start items-start wrapper relative"
+    style="z-index: 99999999"
+    :class="['mb-' + marginBottom + ' mt-' + marginTop]"
+  >
+    <div class="flex items-center mb-1 align-middle justify-centersure">
+      <V-Icon :icon="icon" size="xs" class="mr-1" v-if="icon !== undefined" />
+      <span class="text-xs self-center">{{ text }}</span>
     </div>
     <!-- <input /> -->
     <Input
@@ -15,10 +14,8 @@
       classs="px-2 py-1 w-full text-sm"
       @focused="focused()"
       v-model="selected"
-      :valueProps="selected"
       :class="[colorFn()]"
       :type="type"
-      name="s123540540540"
       cursor="pointer"
     />
     <input
@@ -189,7 +186,7 @@ export default {
       type: String,
       require: false,
     },
-    label: {
+    text: {
       default: "Put a label here",
       type: String,
       require: false,
@@ -211,6 +208,12 @@ export default {
     tabIndex: {
       type: Number,
       default: 0,
+    },
+    marginTop: {
+      type: Number,
+    },
+    marginBottom: {
+      type: Number,
     },
   },
 };

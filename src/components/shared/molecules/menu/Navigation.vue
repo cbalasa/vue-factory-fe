@@ -2,9 +2,11 @@
   <div
     class="flex justify-between w-full fixed"
     :class="[
-      colorBackground == 'transparent'
+      scrollMuch
+        ? 'whiteBackgroundColor shadow-md'
+        : colorBackground == 'transparent'
         ? colorBackground + 'BackgroundColor'
-        : colorBackground + 'BackgroundColor shadow-xl',
+        : colorBackground + 'BackgroundColor shadow-md',
       windowsWidth > 1024 ? 'h-16 ' : null,
     ]"
     style="z-index: 9999999"
@@ -18,7 +20,9 @@
         />
       </div>
       <div class="w-10/12 flex items-center justify-end">
-        <NavigationDesktop :colorBackground="colorBackground" />
+        <NavigationDesktop
+          :colorBackground="scrollMuch ? 'white' : colorBackground"
+        />
       </div>
     </div>
     <div v-else class="pb-4">
@@ -37,6 +41,7 @@ export default {
   data() {
     return {
       windowsWidth: 0,
+      scrollMuch: false,
     };
   },
   props: {
@@ -49,10 +54,22 @@ export default {
     setWindowsWidth() {
       this.windowsWidth = window.innerWidth;
     },
+    handleScroll() {
+      if (this.colorBackground == "transparent") {
+        console.log("trans");
+        this.scrollMuch = window.scrollY > 80;
+      }
+    },
   },
   mounted() {
     this.setWindowsWidth();
     window.addEventListener("resize", this.setWindowsWidth);
+  },
+  created: function () {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed: function () {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>

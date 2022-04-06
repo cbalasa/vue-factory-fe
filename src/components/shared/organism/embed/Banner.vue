@@ -42,7 +42,7 @@
     </div>
     <div v-else>
       <div
-        class="z-50 py-10 flex items-center justify-center w-full flex-col"
+        class="z-50 py-10 flex w-full flex-col"
         :style="{ height: bannerHeight + 'px' }"
       >
         <Combinations
@@ -50,6 +50,39 @@
           v-if="combinations !== undefined"
         />
       </div>
+      <!-- <Columns align="center">
+        <template #first>
+          <div
+            class="z-50 py-10 flex items-center justify-center w-full flex-col"
+            :style="{ height: bannerHeight + 'px' }"
+          >
+            <Combinations
+              :components="combinations"
+              v-if="combinations !== undefined"
+            />
+          </div>
+        </template>
+        <template #second>
+          <ParallaxContainer
+            v-if="parallax"
+            style="overflow: visible !important; z-index: 0"
+          >
+            <ParallaxElement :factor="-0.25">
+              <V-Image
+                :image="image"
+                class="no-repeat m-auto relative w-auto"
+                :style="{
+                  height: parallaxHeightImg,
+                }"
+                :parentName="parentName"
+              />
+            </ParallaxElement>
+          </ParallaxContainer>
+          <div v-else>
+            <V-Image :image="image" class="m-auto" :parentName="parentName" />
+          </div>
+        </template>
+      </Columns> -->
       <ParallaxContainer
         v-if="parallax"
         style="overflow: visible !important; z-index: 0"
@@ -66,11 +99,7 @@
         </ParallaxElement>
       </ParallaxContainer>
       <div v-else>
-        <V-Image
-          :image="image"
-          class="no-repeat m-auto relative"
-          :parentName="parentName"
-        />
+        <V-Image :image="image" class="m-auto" :parentName="parentName" />
       </div>
     </div>
   </div>

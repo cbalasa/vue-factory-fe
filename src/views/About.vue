@@ -1,17 +1,7 @@
 <template>
-  <div class="flex flex-col">
-    <Combinations
-      :components="
-        $projectJSON.pages[$options.name.toLowerCase()].content[0].components
-      "
-    />
-    <!-- <Banner
-        image="banner.jpg"
-        :parentName="$options.name"
-        height="full"
-        :parallax="false"
-        :combinations="combinations"
-      /> -->
+  <div class="iconCarousel" style="height: 50px">
+    <span class="flex bg-black w-4/12 lg:w-2/12">Test 1</span>
+    <span class="flex bg-red-500 w-8/12 lg:w-4/12">Test 2</span>
   </div>
 </template>
 
@@ -63,3 +53,5 @@ export default {
   },
 };
 </script>
+
+

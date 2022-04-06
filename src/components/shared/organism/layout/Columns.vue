@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-between w-full" :class="[color + 'BackgroundColor']">
-    <div class="flex flex-wrap wrapper">
+    <div class="flex flex-wrap">
       <div
         v-for="(col, index) in text"
         :key="index"
@@ -39,6 +39,23 @@
           :uppercase="col.props.uppercase"
         ></component>
       </div>
+      <div
+        :class="[
+          'w-full',
+          'md:w-' + 12 / numberOfSlots + '/12 ',
+          'items-' + align,
+          i == 0
+            ? ' md:pr-12 '
+            : i == Object.keys($slots).length - 1
+            ? ' md:pl-12 '
+            : ' md:px-12 ',
+        ]"
+        class="md:mb-0 mb-6 flex flex-1 justify-center flex-col"
+        v-for="(key, i) in Object.keys($slots)"
+        :key="i"
+      >
+        <slot :name="key" />
+      </div>
     </div>
   </div>
 </template>
@@ -58,10 +75,14 @@ export default {
 
     align: {
       type: String,
-      default: "start",
     },
     color: {
       type: String,
+    },
+  },
+  computed: {
+    numberOfSlots() {
+      return Object.keys(this.$slots).length;
     },
   },
 };

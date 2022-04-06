@@ -1,61 +1,54 @@
 <template>
-  <div class="flex w-full">
+  <div
+    class="flex w-full items-start"
+    :class="[
+      'mb-' + marginBottom + ' mt-' + marginTop,
+      'flex-' + flexDirection,
+    ]"
+  >
     <div
-      v-if="type == 'full' || type == undefined"
-      class="flex flex-col w-full items-start"
-      :class="[margin ? ' mt-4 mb-1' : '']"
+      class="flex items-center mb-1"
+      v-if="icon !== undefined"
+      :class="[flexDirection == 'row' ? 'mr-2 w-3/12' : '']"
     >
-      <div class="flex items-center mb-1" v-if="icon !== undefined">
-        <font-awesome-icon :icon="icon" size="xs" class="mr-1" />
-        <span class="text-sm">{{ label }}</span>
-      </div>
-      <input
-        type="text"
-        :placeholder="placeholder"
-        class="px-2 py-1 rounded-md border w-full text-sm bg-transparent"
-        :class="[colorFn(), 'cursor-' + cursor]"
-        :name="name"
-        v-model="value"
-        @focus="$emit('focused', true)"
+      <V-Icon
+        :icon="icon"
+        size="xs"
+        :class="text !== undefined ? 'mr-2' : ''"
       />
+      <span class="text-sm">{{ text }}</span>
     </div>
-    <div
-      v-if="type == 'bottom'"
-      class="flex w-full"
-      :class="[margin ? ' mt-4 mb-1' : '']"
-    >
-      <div class="flex items-center mb-1 mr-2 w-3/12" v-if="icon !== undefined">
-        <font-awesome-icon :icon="icon" size="xs" class="mr-1" />
-        <span class="text-sm">{{ label }}</span>
-      </div>
-      <input
-        type="text"
-        :placeholder="placeholder"
-        class="px-2 py-1 border-b text-sm w-9/12 bg-transparent"
-        :name="name"
-        v-model="value"
-        :class="[
-          colorFn(),
-          colorBackground + 'BackgroundColor',
-          icon !== undefined ? 'w-9/12' : 'w-full',
-          'cursor-' + cursor,
-        ]"
-        @focus="$emit('focused', true)"
-      />
-    </div>
+    <input
+      type="text"
+      :placeholder="placeholder"
+      class="px-2 py-1 text-sm flex"
+      :class="[
+        colorFn(),
+        'cursor-' + cursor,
+        type == 'outline' || type == undefined
+          ? 'border rounded-md'
+          : 'border-b',
+        icon !== undefined && flexDirection == 'row' ? 'w-9/12 ' : 'w-full ',
+        colorBackground
+          ? colorBackground + 'BackgroundColor'
+          : 'bg - transparent',
+      ]"
+      :name="name"
+      v-model="value"
+      @focus="$emit('focused', true)"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: "Input",
-  data() {
-    return { value: "" };
-  },
+
   props: {
     type: {
       type: String,
       required: false,
+      default: "outline",
     },
     name: {
       type: String,
@@ -65,7 +58,7 @@ export default {
       type: String,
       require: false,
     },
-    label: {
+    text: {
       type: String,
       require: false,
     },
@@ -80,11 +73,17 @@ export default {
       type: String,
       default: "transparent",
     },
-    margin: {
-      type: Boolean,
+
+    marginTop: {
+      type: Number,
     },
-    valueProps: {},
+    marginBottom: { type: Number },
+    value: {},
     cursor: { type: String },
+    flexDirection: {
+      type: String,
+      default: "col",
+    },
   },
   methods: {
     colorFn() {
@@ -106,14 +105,6 @@ export default {
         : this.color == undefined && this.type == undefined
         ? "primaryInputFullBorder primaryBorderColor"
         : null;
-    },
-  },
-  watch: {
-    value(newVal) {
-      this.$emit("input", newVal);
-    },
-    valueProps(newVal) {
-      this.value = newVal;
     },
   },
 };

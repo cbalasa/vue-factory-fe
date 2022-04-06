@@ -1,5 +1,5 @@
 <template>
-  <div :class="position.includes('top') ? 'relative' : null" v-if="show">
+  <div v-if="show">
     <div
       class="
         min-h-12
@@ -70,9 +70,9 @@ export default {
       } else if (this.position == "bottom-right") {
         positionClasses = " bottom-0 right-0";
       } else if (this.position == "bottom-left") {
-        positionClasses = " bottom-0 ";
+        positionClasses = " bottom-0 left-0";
       } else if (this.position == "center-left") {
-        positionClasses = "centerBoxVertically ";
+        positionClasses = "centerBoxVertically left-0";
       } else if (this.position == "center") {
         positionClasses = "centerBox ";
       } else if (this.position == "center-right") {
@@ -82,7 +82,7 @@ export default {
       } else if (this.position == "top-center") {
         positionClasses = "top-0 centerBoxHorizontally";
       } else if (this.position == "top-left") {
-        positionClasses = "top-0 ";
+        positionClasses = "top-0 left-0";
       }
       return positionClasses;
     },

@@ -1,6 +1,7 @@
 <template>
-  <form action="" class="w-full">
-    <SingleAndMultiSelect
+  <form action="" class="w-full mt-8">
+    <slot />
+    <!-- <SingleAndMultiSelect
       :list="list"
       type="bottom"
       :tabIndex="0"
@@ -18,13 +19,11 @@
         type="bottom"
         :tabIndex="0"
       ></SingleAndMultiSelect>
-    </div>
+    </div> -->
   </form>
 </template>
 <script>
-import SingleAndMultiSelect from "../../molecules/form/SingleAndMultiSelect.vue";
 export default {
-  components: { SingleAndMultiSelect },
   name: "V-Form",
   data() {
     return {

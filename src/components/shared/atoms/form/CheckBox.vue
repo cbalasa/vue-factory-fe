@@ -2,9 +2,17 @@
   <div class="flex w-full">
     <label class="labelCheckbox text-sm flex items-center" :class="color">
       <span class="flex self-center mt-1">{{
-        label.charAt(0).toUpperCase() + label.substr(1).toLowerCase()
+        text !== undefined
+          ? text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()
+          : null
       }}</span>
-      <input type="checkbox" checked="checked" :value="label" :name="name" />
+      <input
+        type="checkbox"
+        :checked="check"
+        :name="name"
+        :value="value !== undefined ? value : text"
+        @change="$emit('input', $event.target.checked)"
+      />
       <span
         class="checkmark border"
         :class="[rounded ? ' rounded-md ' : null, color + 'BorderColor']"
@@ -17,7 +25,9 @@
 export default {
   name: "CheckBox",
   data() {
-    return { value: "" };
+    return {
+      check: false,
+    };
   },
   props: {
     color: {
@@ -25,7 +35,7 @@ export default {
       required: false,
       default: "primary",
     },
-    label: {
+    text: {
       type: String,
       required: false,
     },
@@ -36,6 +46,9 @@ export default {
     name: {
       type: String,
       required: false,
+    },
+    value: {
+      type: String,
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- CAROUSEL -->
-    <div class="h-screen w-full overflow-hidden relative">
+    <div class="h-screen w-full overflow-hidden relative" ref="carouselWrapper">
       <div class="flex items-center">
         <div @click="previousSlide()">
           <V-Icon
@@ -382,7 +382,7 @@ export default {
       this.carouselWidth = this.setSlideWidth() * this.components.length;
     },
     setSlideWidth() {
-      this.slideWidth = window.innerWidth;
+      this.slideWidth = this.$refs.carouselWrapper.clientWidth;
       return this.slideWidth;
     },
     setCarousePopUpWidth() {
@@ -410,7 +410,10 @@ export default {
     },
   },
   mounted() {
-    this.slides = Object.keys(this.$refs);
+    console.log(this.$refs.carouselWrapper.clientWidth);
+    this.slides = Object.keys(this.$refs).filter((key) =>
+      key.includes("slide")
+    );
     this.setCarouselWidth();
     this.setSlideWidth();
     this.setCarousePopUpWidth();
@@ -428,7 +431,9 @@ export default {
     );
   },
   updated() {
-    this.slides = Object.keys(this.$refs);
+    this.slides = Object.keys(this.$refs).filter((key) =>
+      key.includes("slide")
+    );
     this.setTranslate(this.slides);
   },
 };

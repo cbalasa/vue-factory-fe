@@ -3,12 +3,14 @@
     class="z-50"
     :class="[
       color + 'TextColor',
+      'justify-' + align,
       'text-' + textAlign,
       'mt-' + marginTop,
       'mb-' + marginBottom,
-      'text-' + size,
+      'text-' + textSize,
       'font-' + fontWeight,
       uppercase ? 'uppercase' : null,
+      italic ? 'italic' : '',
     ]"
     >{{ text }}</span
   >
@@ -31,21 +33,29 @@ export default {
       type: String,
       default: "left",
     },
+    align: {
+      type: String,
+      default: "right",
+    },
     marginTop: {
       type: Number,
     },
     marginBottom: {
       type: Number,
     },
-    size: {
+    textSize: {
       type: String,
-      default: "3xl",
+      default: "2xl",
     },
     fontWeight: {
       type: String,
       default: "bold",
     },
     uppercase: {
+      type: Boolean,
+      default: false,
+    },
+    italic: {
       type: Boolean,
       default: false,
     },

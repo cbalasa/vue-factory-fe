@@ -1,21 +1,37 @@
 <template>
-  <div class="w-full shadow-md rounded-md">
+  <div
+    class="w-full shadow-md rounded-md mb-2 flex"
+    :class="[type == 'horizontal' ? ' flex-col' : '']"
+  >
     <!-- HEADER -->
-    <div class="flex rounded-t-md" :class="color + 'BackgroundColor'">
+    <div
+      class="flex"
+      :class="[
+        color + 'BackgroundColor',
+        type == 'horizontal'
+          ? 'rounded-t-md'
+          : 'flex-col rounded-tl-md justify-between rounded-bl-md',
+      ]"
+      ref="navigationTabsHeader"
+    >
       <div
-        v-for="(header, i) in navigationData"
+        v-for="(header, i) in list"
         :key="i"
-        class="flex align-middle items-center cursor-pointer py-2 px-4"
+        class="flex align-middle items-center cursor-pointer py-4 px-6"
         :class="[
           i == 0 ? ' rounded-tl-md' : null,
           selectedTab == i + header.title
-            ? 'bg-white  border-t-2 border-l-2 ' +
+            ? 'bg-white  border-t-2 border-l-2 border-b-2 ' +
               color +
               'TextColor ' +
               color +
               'BorderColor'
             : 'text-white',
+          selectedTab == i + header.title && i == list.length - 1
+            ? 'rounded-bl-md'
+            : null,
         ]"
+        :style="{ height: type == 'horizontal' ? '' : headerHeight + 'px' }"
         @click="selectedTab = i + header.title"
       >
         <V-Icon :icon="header.icon" class="mr-2" size="lg" v-if="header.icon" />
@@ -24,23 +40,19 @@
     </div>
 
     <!-- BODY -->
-    <div class="flex rounded-b-md">
-      <template v-for="(header, i) in navigationData">
+
+    <div class="flex rounded-b-md" style="min-height: 200px">
+      <template v-for="(header, i) in list">
         <div
           :key="i"
-          class="
-            flex
-            align-middle
-            items-center
-            cursor-pointer
-            py-2
-            px-4
-            text-sm
-            border-2 border-t-0
-            rounded-b-md
-            text-justify
-          "
-          :class="color + 'BorderColor'"
+          class="flex py-4 px-6 text-sm text-justify"
+          :class="[
+            color + 'BorderColor',
+            type == 'horizontal'
+              ? 'border-2 border-t-0 rounded-b-md'
+              : 'border-2 border-l-0 rounded-br-md rounded-tr-md',
+            centerBodyText ? 'items-center' : null,
+          ]"
           v-if="selectedTab == i + header.title"
         >
           <span>{{ header.text }}</span>
@@ -56,23 +68,7 @@ export default {
   data() {
     return {
       selectedTab: "",
-      navigationData: [
-        {
-          icon: "user-circle",
-          title: "Profile",
-          text: "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.",
-        },
-        {
-          icon: "envelope-open-text",
-          title: "Message",
-          text: "I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.",
-        },
-        {
-          icon: "wrench",
-          title: "Settings",
-          text: "I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.",
-        },
-      ],
+      headerHeight: 0,
     };
   },
   props: {
@@ -80,9 +76,31 @@ export default {
       type: String,
       default: "primary",
     },
+    type: {
+      type: String,
+      default: "vertical",
+    },
+    centerBodyText: {
+      type: Boolean,
+      default: false,
+    },
+    list: {
+      type: Array,
+    },
+  },
+  methods: {
+    equalHeight() {
+      if (this.$refs.navigationTabsHeader !== undefined) {
+        return (this.headerHeight =
+          this.$refs.navigationTabsHeader.clientHeight / 3);
+      }
+    },
   },
   mounted() {
-    this.selectedTab = 0 + this.navigationData[0].title;
+    this.selectedTab = 0 + this.list[0].title;
+  },
+  updated() {
+    this.equalHeight();
   },
 };
 </script>

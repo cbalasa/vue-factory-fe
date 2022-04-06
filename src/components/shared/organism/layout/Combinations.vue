@@ -31,6 +31,7 @@
         :colorBackground="component.props.colorBackground"
         :fontWeight="component.props.fontWeight"
         :uppercase="component.props.uppercase"
+        :textSize="component.props.textSize"
       ></component>
     </div>
   </div>
