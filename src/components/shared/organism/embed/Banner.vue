@@ -34,10 +34,7 @@
         "
         :style="{ height: bannerHeight + 'px' }"
       >
-        <Combinations
-          :components="combinations"
-          v-if="combinations !== undefined"
-        />
+        <slot />
       </div>
     </div>
     <div v-else>
